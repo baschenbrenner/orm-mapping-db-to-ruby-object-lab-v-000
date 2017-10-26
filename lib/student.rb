@@ -3,15 +3,17 @@ class Student
 
   def initialize(id,name, grade)
   end
-  
+
   def self.new_from_db(row)
-    sql = <<-SQL 
+    sql = <<-SQL
       SELECT * FROM students
       SQL
 
-      DB[:conn].execute(sql)
+      DB[:conn].execute(sql).each do |student| 
+        Student.new(student[0],student[1],student[2])
+      }
 
-  
+
   end
 
   def self.all
