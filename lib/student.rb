@@ -85,6 +85,7 @@ class Student
       SELECT * FROM students WHERE grade = 10 ORDER BY name LIMIT 1
       SQL
     DB[:conn].execute(sql)[0]
+    binding.pry
   end
 
   def self.all_students_in_grade_X(x)
