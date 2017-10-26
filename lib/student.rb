@@ -16,9 +16,12 @@ class Student
     sql = <<-SQL
       SELECT * FROM students
       SQL
+      all_students=[]
+      DB[:conn].execute(sql).each do |student|
+        all_students<<Student.new_from_db(student)
+        
+      end
 
-      DB[:conn].execute(sql)
-      
   end
 
   def self.find_by_name(name)
