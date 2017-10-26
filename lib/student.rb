@@ -21,7 +21,7 @@ class Student
         all_students<<Student.new_from_db(student)
       end
       all_students
-      binding.pry
+      
   end
 
   def self.find_by_name(name)
