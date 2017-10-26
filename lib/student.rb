@@ -72,4 +72,25 @@ class Student
       SQL
     DB[:conn].execute(sql)
   end
+
+  def self.first_X_students_in_grade_10(x)
+    sql = <<-SQL
+      SELECT * FROM students WHERE grade = 10 ORDER BY name LIMIT 10
+      SQL
+    DB[:conn].execute(sql)
+  end
+
+  def self.first_student_in_grade_10
+    sql = <<-SQL
+      SELECT * FROM students WHERE grade = 10 ORDER BY name LIMIT 1
+      SQL
+    DB[:conn].execute(sql)
+  end
+
+  def self.all_students_in_grade_X(x)
+    sql = <<-SQL
+      SELECT * FROM students WHERE grade = x
+      SQL
+    DB[:conn].execute(sql)
+  end
 end
