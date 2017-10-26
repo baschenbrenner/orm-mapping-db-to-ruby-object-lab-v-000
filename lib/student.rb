@@ -19,7 +19,6 @@ class Student
       all_students=[]
       DB[:conn].execute(sql).each do |student|
         all_students<<Student.new_from_db(student)
-
       end
 
   end
