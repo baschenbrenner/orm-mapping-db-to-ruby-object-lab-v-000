@@ -18,7 +18,7 @@ class Student
       SQL
 
       DB[:conn].execute(sql)
-    
+
   end
 
   def self.find_by_name(name)
@@ -27,7 +27,7 @@ class Student
       SQL
     DB[:conn].execute(sql, name)
     self.new_from_db(DB[:conn].execute(sql, name)[0])
-  
+
   end
 
   def save
@@ -56,7 +56,10 @@ class Student
     DB[:conn].execute(sql)
   end
 
-  def count_all_students_in_grade_9 
-    
+  def count_all_students_in_grade_9
+    sql = <<-SQL 
+      SELECT * FROM students WHERE grade = 9
+      SQL
+    DB[:conn].execute(sql)
   end
 end
