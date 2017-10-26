@@ -9,9 +9,9 @@ class Student
       SELECT * FROM students
       SQL
 
-      DB[:conn].execute(sql).each do |student| 
+      DB[:conn].execute(sql).each do |student|
         Student.new(student[0],student[1],student[2])
-      }
+      end
 
 
   end
