@@ -30,7 +30,7 @@ class Student
     self.new_from_db(DB[:conn].execute(sql, name))
     # find the student in the database given a name
     # return a new instance of the Student class
-    
+
   end
 
   def save
